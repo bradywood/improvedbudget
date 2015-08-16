@@ -1,0 +1,17 @@
+<template name="changeCategory">
+  {{transactionRowItem}}
+  <select class="change-category">
+    {{#if uncategorizedIsSelected}}
+      <option disabled="disabled" selected>uncategorized</option>
+    {{else}}
+      <option disabled="disabled">uncategorized</option>
+    {{/if}}
+    {{#each changeCategoryItem}}
+      {{#if changeCategorySelected}}
+        <option selected value="{{_id}}">{{name}}</option>
+      {{else}}
+        <option value="{{_id}}">{{name}}</option>
+      {{/if}}
+    {{/each}}
+  </select>
+</template>
