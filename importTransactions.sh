@@ -19,7 +19,7 @@ LOAD DATA INFILE '${file}'
  FIELDS TERMINATED BY ','
  LINES TERMINATED BY '\n'
  IGNORE 1 ROWS
- (@transaction_date_variable,account_nickname,description,debit,credit)
+ (status,@transaction_date_variable,original_description,split_type,category,currency,amount,user_description,memo,classification,account_name)
  SET transaction_date = STR_TO_DATE(@transaction_date_variable, '%d/%m/%y')
 EOF
   if [ $? -ne 0 ]
