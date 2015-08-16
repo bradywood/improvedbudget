@@ -4,7 +4,8 @@
 rm sqlerror.log
 
 #at the moment the columns are "date, bank account, description, debit, credit"
-files=( `pwd`/server/unprocessedtransactions/*.csv )
+#files=( `pwd`/server/unprocessedtransactions/*.csv )
+files=( $1 )
 
 if [ "${#files[@]}" -ge 0 ]
 then
@@ -12,22 +13,8 @@ for file in "${files[@]}"
 do
  TABLE='transactions'
  echo "processing file [" $file "] to table [" $TABLE "] ...";
-mysql -u"${USER}" -p"${PASSWORD}" -hlocalhost -D"${DB}" <<EOF >>"sqlerror.log" 2>&1
+ mongoimport -d meteor -c transactions --type csv --file ${file} --headerline
 
-LOAD DATA INFILE '${file}'
- INTO TABLE ${TABLE}
- FIELDS TERMINATED BY ','
- LINES TERMINATED BY '\n'
- IGNORE 1 ROWS
- (status,@transaction_date_variable,original_description,split_type,category,currency,amount,user_description,memo,classification,account_name)
- SET transaction_date = STR_TO_DATE(@transaction_date_variable, '%d/%m/%y')
-EOF
-  if [ $? -ne 0 ]
-  then
-    echo "file: ${file} has had issues processing (see above), please correct before file is archived." >> sqlerror.log
-  else
-    mv ${file} archivetransactions/${file##*/}
-  fi
 done
 else
   echo "There are no more files to process"
