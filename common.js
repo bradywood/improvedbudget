@@ -10,8 +10,8 @@ TabularTables.Transactions = new Tabular.Table({
   columns: [
     {data: "Status", title: "Status"},
     {data: "Date", title: "Date"},
-    {data: "Account", title: "Account Name"},
-    {data: "Description", title: "Description"},
+    {data: "Account Name", title: "Account Name"},
+    {data: "Original Description", title: "Description"},
     {data: "Category", title: "Category"},
     {data: "Currency", title: "Currency"},
     {data: "Amount", title: "Amount"},
