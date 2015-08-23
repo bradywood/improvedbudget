@@ -2,6 +2,19 @@ TabularTables = {};
 
 Transactions = new Mongo.Collection('transactions');
 
+Router.route('/logon');
+Router.route('/transaction');
+Router.route('/cashflow');
+
+Router.configure({
+    layoutTemplate: 'main'
+});
+
+Router.route('/', {
+  template: 'transaction' 
+});
+
+
 Meteor.isClient && Template.registerHelper('TabularTables', TabularTables);
 
 TabularTables.Transactions = new Tabular.Table({

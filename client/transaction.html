@@ -1,19 +1,4 @@
-<head>
-  <title>Budget</title>
-</head>
-
-<body>
-  <div class="container">
-    <div class="row-fluid">
-            <div class="col-sm-12 col-md-9">
-                <h1>Budget App!</h1>
-            </div>
-            <div class="col-sm-12 col-md-3 clearfix">
-                <br />
-                {{> loginButtons}}
-                <br /><br />
-            </div>
-        </div>
+<template name="transaction">
         <div class="row-fluid">
             {{#if currentUser}}
                 <div class="col-sm-12 col-md-9">
@@ -27,5 +12,4 @@
                 </div>
             {{/if}}
         </div>
-  </div>
-</body>
+</template>

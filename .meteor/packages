@@ -10,3 +10,4 @@ accounts-google
 accounts-ui
 aldeed:tabular
 twbs:bootstrap
+iron:router

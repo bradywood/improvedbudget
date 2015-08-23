@@ -1,4 +1,5 @@
 Meteor.subscribe("categories");
+Meteor.subscribe("transactions");
 
 Template.changeCategory.helpers({
     changeCategoryItem: function(){
@@ -22,6 +23,11 @@ checkIfNotCategorized = function(transactionItemRecord) {
     return true;
   }
   return false;
+}
+
+getBudget = function() {
+  var transactions = Transactions.find({}).fetch();
+
 }
 
 Template.changeCategory.uncategorizedIsSelected = function() {
