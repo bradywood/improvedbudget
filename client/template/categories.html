@@ -1,0 +1,58 @@
+<template name="categories">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="page-header">
+                <h1>Categories <small>Page</small></h1>
+            </div>
+            <button class="btn btn-large btn-success addCategory">Add Category</button>
+            <table class="table table-bordered table-striped table-hover">
+                <thead>
+                    <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Regex Match</th>
+                    <th>Parent ID</th>
+                    <th>Order ID</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each categoryList}}
+                        {{>categoryRow}}
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</template>
+<template name="categoryRow">
+    <tr class="categoryRow">
+        <td>{{id}}</td>
+        <td>{{name}}</td>
+        <td>{{regex}}</td>
+        <td>{{parentid}}</td>
+        <td>{{orderid}}</td>
+    </tr>
+</template>
+<template name="categoryForm">
+    <div class="modal fade" id="categoryModal">
+    	<div class="modal-dialog">
+    		<div class="modal-content">
+    			<div class="modal-header">
+    				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+    				<h4 class="modal-title">Add Category</h4>
+    			</div>
+    			<div class="modal-body">
+                    <label for="id">Id:</label><input type="text" class="input input-xlarge id" name="id" value="{{category.id}}" id="id">
+                    <label for="name">Name:</label><input type="text" class="input input-xlarge name" name="name" value="{{category.name}}" id="name">
+                    <label for="regex">Regex:</label><input type="text" class="input input-xlarge regex" name="regex" value="{{category.regex}}" id="regex">
+                    <label for="parentId">Parent Id:</label><input type="text" class="input input-xlarge parentId" name="parentId" value="{{category.parentid}}" id="parentId">
+                    <label for="orderId">Order Id:</label><input type="text" class="input input-xlarge orderId" name="orderId" value="{{category.orderid}}" id="orderId">
+                </div>
+    			<div class="modal-footer">
+                    <button type="button" class="btn btn-success save">Save changes</button>
+    				<button type="button" class="btn cancel" data-dismiss="modal">Cancel</button>
+    			</div>
+    		</div><!-- /.modal-content -->
+    	</div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+</template>

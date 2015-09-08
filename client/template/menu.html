@@ -1,0 +1,17 @@
+<template name="menu">
+    <div class="navbar navbar-static-top">
+        <div class="navbar-inner">
+            <a class="brand" href="#">{{appName}}</a>
+            <ul class="nav">
+                <li><a href="/">Home</a></li>
+    {{#if currentUser}}
+                <li><a href="/transactions">Transactions</a></li>
+                <li><a href="/categories">Categories</a></li>
+    {{/if}}
+            </ul>
+            <div class="pull-right">
+                {{> loginButtons}}
+            </div>
+        </div>
+    </div>
+</template>

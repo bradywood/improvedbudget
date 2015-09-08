@@ -11,3 +11,6 @@ accounts-ui
 aldeed:tabular
 twbs:bootstrap
 iron:router
+bootstrap
+jquery
+peppelg:bootstrap-3-modal

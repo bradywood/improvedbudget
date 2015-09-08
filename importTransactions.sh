@@ -1,7 +1,6 @@
 #!/bin/bash
 # set variables, such as USER, PASS, SRC etc ...
 
-rm sqlerror.log
 
 #at the moment the columns are "date, bank account, description, debit, credit"
 #files=( `pwd`/server/unprocessedtransactions/*.csv )
@@ -13,7 +12,7 @@ for file in "${files[@]}"
 do
  TABLE='transactions'
  echo "processing file [" $file "] to table [" $TABLE "] ...";
- mongoimport -d meteor -c transactions --type csv --file ${file} --headerline
+ mongoimport -h localhost:3001 -d meteor -c transactions --type csv --file ${file} --headerline
 
 done
 else
